@@ -15,7 +15,7 @@ RUN apt-get update -yqq && apt-get install -y -qq sqlite3 libsqlite3-dev\
     libjpeg62-turbo-dev \
     libpng12-dev
 
-
+RUN pecl install xdebug
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install gd intl zip mysqli mcrypt xdebug mbstring
 RUN curl -L http://pecl.php.net/get/memcache-3.0.8.tgz >> /usr/src/php/ext/memcache.tgz
