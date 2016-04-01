@@ -32,6 +32,8 @@ RUN docker-php-ext-install memcache-3.0.8
 # Configure timezone
 RUN touch /usr/local/etc/php/conf.d/timezone.ini
 RUN echo "date.timezone = Europe/Paris;" >> /usr/local/etc/php/conf.d/timezone.ini
+# Memory Limit 
+RUN echo "memory_limit=512M;" >> /usr/local/etc/php/conf.d/memory-limit.ini
 # node legacy fix
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 # Install composer
