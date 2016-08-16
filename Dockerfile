@@ -23,7 +23,7 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.var_display_max_data=2048" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.var_display_max_depth=128" >> /usr/local/etc/php/conf.d/xdebug.ini \
-    && echo "xdebug.max_nesting_level=200" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.max_nesting_level=200" >> /usr/local/etc/php/conf.d/xdebug.ini
 # install other extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install gd intl zip mysqli mcrypt mbstring
