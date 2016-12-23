@@ -1,5 +1,7 @@
 FROM php:5.6-apache
 
+MAINTAINER Titouan BENOIT <titouan@welp.today>
+
 RUN apt-get update -yqq && apt-get install -y -qq sqlite3 libsqlite3-dev\
     libmcrypt-dev \
     curl \
@@ -26,7 +28,7 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.max_nesting_level=200" >> /usr/local/etc/php/conf.d/xdebug.ini
 # install other extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install gd intl zip mysqli mcrypt mbstring
+RUN docker-php-ext-install gd intl zip mysqli mcrypt mbstring bcmath
 # Configure timezone
 RUN touch /usr/local/etc/php/conf.d/timezone.ini
 RUN echo "date.timezone = Europe/Paris;" >> /usr/local/etc/php/conf.d/timezone.ini
