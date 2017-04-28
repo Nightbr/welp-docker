@@ -38,3 +38,6 @@ RUN echo "memory_limit=2G;" >> /usr/local/etc/php/conf.d/memory-limit.ini
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 # Install composer
 RUN curl -k -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#install maildev
+RUN npm install -g maildev
+RUN maildev
