@@ -2,12 +2,11 @@ FROM php:5.6-apache
 
 MAINTAINER Titouan BENOIT <titouan@welp.today>
 
+
 RUN apt-get update -yqq && apt-get install -y -qq sqlite3 libsqlite3-dev\
     libmcrypt-dev \
     curl \
     zlib1g-dev \
-    nodejs \
-    npm \
     git \
     libmemcached-dev \
     zlib1g-dev \
@@ -16,6 +15,10 @@ RUN apt-get update -yqq && apt-get install -y -qq sqlite3 libsqlite3-dev\
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng12-dev
+
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+
+RUN apt-get install -y nodejs
 
 # Install php extensions
 # install xdebug
