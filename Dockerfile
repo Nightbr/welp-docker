@@ -37,7 +37,5 @@ RUN touch /usr/local/etc/php/conf.d/timezone.ini
 RUN echo "date.timezone = Europe/Paris;" >> /usr/local/etc/php/conf.d/timezone.ini
 # Memory Limit
 RUN echo "memory_limit=2G;" >> /usr/local/etc/php/conf.d/memory-limit.ini
-# node legacy fix
-RUN ln -s /usr/bin/nodejs /usr/bin/node
 # Install composer
 RUN curl -k -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
